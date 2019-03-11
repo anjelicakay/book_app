@@ -39,4 +39,5 @@ class Api::BooksController < ApplicationController
     book.destroy
     render json: {message: "Successfully removed book."}
   end
+  
 end

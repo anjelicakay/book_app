@@ -1,0 +1,1 @@
+json.partial! @following, partial: "following", as: :following

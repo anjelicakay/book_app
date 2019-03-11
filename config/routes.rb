@@ -34,6 +34,14 @@ Rails.application.routes.draw do
     post '/book_clubs' => 'book_clubs#create'
     get '/book_clubs/:id' => 'book_clubs#show'
     patch '/book_clubs/:id' => 'book_clubs#update'
-    delete '/book_clubs/:id' => 'book_clubs#destroy'    
+    delete '/book_clubs/:id' => 'book_clubs#destroy' 
+    
+    get '/memberships' => 'memberships#index'   
+    post '/memberships' => 'memberships#create'   
+    get '/memberships/:id' => 'memberships#show'   
+    delete '/memberships/:id' => 'memberships#destroy'
+
+    get '/messages' => 'messages#index'
+    post '/messages' => 'messages#create'
   end
 end

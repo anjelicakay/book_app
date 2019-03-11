@@ -19,12 +19,17 @@ class Api::BooksController < ApplicationController
     end
   end
 
+  def show
+    @book = Book.find(params[:id])
+    render 'show.json.jbuilder'
+  end
+
   def update
     @book = Book.find(params[:id])
 
-    @book.title = params[:title] || @book.title,
-    @book.author_id = params[:author_id] || @book.author_id,
-    @book.summary = params[:summary] || @book.summary,
+    @book.title = params[:title] || @book.title
+    @book.author_id = params[:author_id] || @book.author_id
+    @book.summary = params[:summary] || @book.summary
     @book.genre = params[:genre] || @book.genre
 
     if @book.save
@@ -39,5 +44,5 @@ class Api::BooksController < ApplicationController
     book.destroy
     render json: {message: "Successfully removed book."}
   end
-  
+
 end

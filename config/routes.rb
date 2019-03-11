@@ -29,5 +29,11 @@ Rails.application.routes.draw do
     get '/reviews/:id' => 'reviews#show'
     patch '/reviews/:id' => 'reviews#udpate'
     delete '/reviews/:id' => 'reviews#destroy'
+
+    get '/book_clubs' => 'book_clubs#index'
+    post '/book_clubs' => 'book_clubs#create'
+    get '/book_clubs/:id' => 'book_clubs#show'
+    patch '/book_clubs/:id' => 'book_clubs#update'
+    delete '/book_clubs/:id' => 'book_clubs#destroy'    
   end
 end

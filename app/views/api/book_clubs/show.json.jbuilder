@@ -1,0 +1,1 @@
+json.partial! @book_club, partial: "book_club", as: :book_club

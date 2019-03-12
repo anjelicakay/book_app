@@ -1,4 +1,5 @@
 class Api::FollowingsController < ApplicationController
+  before_action :authenticate_user
 
   def create
     @following = Following.new(

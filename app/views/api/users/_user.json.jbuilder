@@ -19,7 +19,7 @@ json.followees do
   end  
 end
 
-json.reviews.do 
+json.reviews do 
   json.array! user.reviews.each do |review|
     json.id review.id
     json.user_id review.user_id
@@ -29,7 +29,7 @@ json.reviews.do
   end
 end
 
-json.inventories.do 
+json.inventories do 
   json.array! user.inventories.each do |inventory|
     json.id inventory.id
     json.user_id inventory.user_id
@@ -38,7 +38,7 @@ json.inventories.do
   end 
 end
 
-json.memberships.do 
+json.memberships do 
   json.array! user.memberships.each do |membership|
     json.id membership.id
     json.user_id membership.user_id
@@ -46,7 +46,7 @@ json.memberships.do
   end 
 end
 
-json.messages.do 
+json.messages do 
   json.array! user.messages.each do |message| 
     json.id message.id
     json.user_id message.user_id

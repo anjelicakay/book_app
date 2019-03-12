@@ -1,4 +1,5 @@
 class Api::InventoriesController < ApplicationController
+  before_action :authenticate_user
 
   def index
     @inventories = Inventory.all
@@ -8,7 +9,7 @@ class Api::InventoriesController < ApplicationController
   def create
     inventory = Inventory.new(
                               user_id: current_user.id,
-                              book_id: current_book.id,
+                              book_id: params[:book_id],
                               status: params[:status]
                               )
     if inventory.save
@@ -28,11 +29,17 @@ class Api::InventoriesController < ApplicationController
 
     @inventory.status = params[:status] || @inventory.status
 
-    if @user.id = current_user.id && @inventory.save
+    if current_user && @inventory.save
       render 'show.json.jbuilder'
     else
       render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity     
     end
+  end
+
+  def destroy
+    inventory = Inventory.find(params[:id])
+    inventory.destroy
+    render json: {message: "Successfully removed book from library."}
   end
   
 end

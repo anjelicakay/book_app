@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
+
+    post "/sessions" => "sessions#create"
+    
     get '/users' => 'users#index'
     post '/users' => 'users#create'
     get '/users/:id' => 'users#show'
@@ -23,11 +26,13 @@ Rails.application.routes.draw do
     post '/inventories' => 'inventories#create'
     get '/inventories/:id' => 'inventories#show'
     patch '/inventories/:id' => 'inventories#update'
+    delete '/inventories/:id' => 'inventories#destroy'
+
 
     get '/reviews' => 'reviews#index'
     post '/reviews' => 'reviews#create'
     get '/reviews/:id' => 'reviews#show'
-    patch '/reviews/:id' => 'reviews#udpate'
+    patch '/reviews/:id' => 'reviews#update'
     delete '/reviews/:id' => 'reviews#destroy'
 
     get '/book_clubs' => 'book_clubs#index'

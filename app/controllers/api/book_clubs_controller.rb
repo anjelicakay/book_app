@@ -1,4 +1,5 @@
 class Api::BookClubsController < ApplicationController
+  before_action :authenticate_user
 
   def index
     @book_clubs = BookClub.all 
@@ -32,7 +33,7 @@ class Api::BookClubsController < ApplicationController
     if @book_club.save
       render 'show.json.jbuilder'
     else
-      render json {errors: @book_club.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: @book_club.errors.full_messages}, status: :unprocessable_entity
     end
   end
 

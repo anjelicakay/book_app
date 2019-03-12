@@ -12,7 +12,7 @@ class Api::AuthorsController < ApplicationController
                         biography: params[:biography]
                         )
     if author.save
-      render json: {message: "User created successfully"}, status: :created 
+      render json: {message: "Author created successfully"}, status: :created 
     else
       render json: {errors: author.errors.full_messages}, status: :bad_request
     end
@@ -33,7 +33,7 @@ class Api::AuthorsController < ApplicationController
     if @author.save
       render 'show.json.jbuilder'
     else
-      render json {errors: @author.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: @author.errors.full_messages}, status: :unprocessable_entity
     end
   end
 end

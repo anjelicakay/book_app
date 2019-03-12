@@ -1,4 +1,5 @@
 class Api::ReviewsController < ApplicationController
+  before_action :authenticate_user
 
   def index
     @reviews = Review.all 
@@ -30,10 +31,10 @@ class Api::ReviewsController < ApplicationController
     @review.rating = params[:rating] || @review.rating
     @review.content = params[:content] || @review.content
 
-    if @user.id = current_user.id && @review.save
+    if current_user && @review.save
       render 'show.json.jbuilder'
     else
-      render json {errors: @review.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: @review.errors.full_messages}, status: :unprocessable_entity
     end
   end
 

@@ -17,5 +17,16 @@ class User < ApplicationRecord
   has_many :book_clubs, through: :memberships
   has_many :messages
 
+  def read_books
+    inventories.read.map {|inventory| inventory.book }
+  end
+
+  def current_books
+    inventories.currently_reading.map {|inventory| inventory.book }
+  end
+
+  def to_read
+    inventories.want_to_read.map {|inventory| inventory.book }
+  end
 
 end

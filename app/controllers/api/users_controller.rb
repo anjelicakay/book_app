@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
-  
+  before_action :authenticate_user, except: [:create, :index, :show] 
+
   def index
     @users = User.all 
     render 'index.json.jbuilder'

@@ -54,3 +54,33 @@ json.messages do
     json.content message.content
   end
 end
+
+json.read_books do
+  json.array! user.read_books.each do |read_book|
+    json.id read_book.id
+    json.title read_book.title
+    json.author_id read_book.author_id
+    json.summary read_book.summary
+    json.genre read_book.genre
+  end
+end
+
+json.current_books do
+  json.array! user.current_books.each do |current_book|
+    json.id current_book.id
+    json.title current_book.title
+    json.author_id current_book.author_id
+    json.summary current_book.summary
+    json.genre current_book.genre
+  end
+end
+
+json.to_read do 
+  json.array! user.to_read.each do |to_read|
+    json.id to_read.id
+    json.title to_read.title
+    json.author_id to_read.author_id
+    json.summary to_read.summary
+    json.genre to_read.genre
+  end
+end

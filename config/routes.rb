@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post '/authors' => 'authors#create'
     get '/authors/:id' => 'authors#show'
     patch '/authors/:id' => 'authors#update' 
+    delete '/authors/:id' => 'authors#destroy'
 
     get '/books' => 'books#index'
     post '/books' => 'books#create'

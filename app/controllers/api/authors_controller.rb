@@ -1,5 +1,5 @@
 class Api::AuthorsController < ApplicationController
-
+  
   def index
     @authors = Author.all  
     render 'index.json.jbuilder'
@@ -35,5 +35,11 @@ class Api::AuthorsController < ApplicationController
     else
       render json: {errors: @author.errors.full_messages}, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    author = Author.find(params[:id])
+    author.destroy
+    render json: {message: "Successfully removed author."}
   end
 end

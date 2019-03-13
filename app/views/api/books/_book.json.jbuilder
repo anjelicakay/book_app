@@ -4,6 +4,12 @@ json.author_id book.author_id
 json.summary book.summary
 json.genre book.genre
 
+json.author do
+  if book.author
+    json.partial! book.author, partial: 'api/authors/author', as: :author
+  end
+end
+
 json.reviews do 
   json.array! book.reviews.each do |review|
     json.id review.id

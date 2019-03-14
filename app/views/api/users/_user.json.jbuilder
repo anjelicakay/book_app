@@ -62,6 +62,8 @@ json.read_books do
     json.author_id read_book.author_id
     json.summary read_book.summary
     json.genre read_book.genre
+    json.image_url read_book.image_url
+    json.page_count read_book.page_count
   end
 end
 
@@ -72,6 +74,8 @@ json.current_books do
     json.author_id current_book.author_id
     json.summary current_book.summary
     json.genre current_book.genre
+    json.image_url current_book.image_url
+    json.page_count current_book.page_count
   end
 end
 
@@ -82,5 +86,7 @@ json.to_read do
     json.author_id to_read.author_id
     json.summary to_read.summary
     json.genre to_read.genre
+    json.image_url to_read.image_url
+    json.page_count to_read.page_count
   end
 end

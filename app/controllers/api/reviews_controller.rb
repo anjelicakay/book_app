@@ -9,7 +9,7 @@ class Api::ReviewsController < ApplicationController
   def create
     review = Review.new(
                         user_id: current_user.id,
-                        book_id: current_book.id,
+                        book_id: params[:book_id],
                         rating: params[:rating],
                         content: params[:content]
                         )

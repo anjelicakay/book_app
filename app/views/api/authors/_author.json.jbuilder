@@ -10,5 +10,7 @@ json.books do
     json.author_id book.author_id
     json.summary book.summary
     json.genre book.genre
+    json.image_url book.image_url
+    json.page_count book.page_count
   end
 end

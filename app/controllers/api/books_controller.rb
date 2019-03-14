@@ -10,7 +10,9 @@ class Api::BooksController < ApplicationController
                     title: params[:title],
                     author_id: params[:author_id],
                     summary: params[:summary],
-                    genre: params[:genre]
+                    genre: params[:genre],
+                    image_url: params[:image_url],
+                    page_count: params[:page_count]
                     )
     if book.save
       render json: {message: "Book created successfully"}, status: :created 
@@ -31,6 +33,8 @@ class Api::BooksController < ApplicationController
     @book.author_id = params[:author_id] || @book.author_id
     @book.summary = params[:summary] || @book.summary
     @book.genre = params[:genre] || @book.genre
+    @book.image_url = params[:image_url] || @book.image_url
+    @book.page_count = params[:page_count] || @book.page_count
 
     if @book.save
       render 'show.json.jbuilder'

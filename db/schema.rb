@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_212325) do
+ActiveRecord::Schema.define(version: 2019_03_14_153421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_212325) do
     t.integer "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url"
+    t.integer "page_count"
   end
 
   create_table "followings", force: :cascade do |t|

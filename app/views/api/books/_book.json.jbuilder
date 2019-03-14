@@ -3,12 +3,23 @@ json.title book.title
 json.author_id book.author_id
 json.summary book.summary
 json.genre book.genre
+json.image_url book.image_url
+json.page_count book.page_count
 
 json.author do
   if book.author
     json.partial! book.author, partial: 'api/authors/author', as: :author
   end
 end
+
+# json.users do
+#   json.array! book.users.each do |user|
+#     json.id user.id
+#     json.first_name user.first_name
+#     json.last_name user.last_name
+#     json.email user.email
+#   end
+# end
 
 json.reviews do 
   json.array! book.reviews.each do |review|

@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'seed_dump'
+gem 'figaro'
+gem 'google-api-client'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     patch '/users/:id' => 'users#update'
     delete '/users/:id' => 'users#destroy'
 
+    # get '/followings' => 'followings#index'
     post '/followings' => 'followings#create'
+    # delete '/followings/:id' => 'followings#destroy'
 
     get '/authors' => 'authors#index'
     post '/authors' => 'authors#create'

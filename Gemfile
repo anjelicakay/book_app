@@ -25,7 +25,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'seed_dump'
 gem 'figaro'
-gem 'google-api-client'
+gem 'google-api-client', require: 'google/apis/books_v1'
+gem 'signet'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

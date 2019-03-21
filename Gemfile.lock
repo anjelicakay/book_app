@@ -230,6 +230,7 @@ DEPENDENCIES
   rails (~> 5.2.2)
   sass-rails (~> 5.0)
   seed_dump
+  signet
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)

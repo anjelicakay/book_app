@@ -2,11 +2,6 @@ Rails.application.routes.draw do
   namespace :api do
 
     post "/sessions" => "sessions#create"
-
-    # get '/google/redirect' => 'accounts#redirect'
-    # get '/google/callback' => 'accounts#callback'
-    get 'google/redirect', to: 'accounts#redirect', as: 'redirect'
-    get 'google/callback', to: 'accounts#callback', as: 'callback'
     
     get '/users' => 'users#index'
     post '/users' => 'users#create'
@@ -56,5 +51,7 @@ Rails.application.routes.draw do
 
     get '/messages' => 'messages#index'
     post '/messages' => 'messages#create'
+
+    get '/google/books' => 'books#search'
   end
 end

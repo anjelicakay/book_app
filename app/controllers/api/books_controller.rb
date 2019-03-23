@@ -50,4 +50,8 @@ class Api::BooksController < ApplicationController
     render json: {message: "Successfully removed book."}
   end
 
+  def search
+
+    render json: response.parse
+  end
 end

@@ -8,8 +8,6 @@ json.book do
   end
 end
 
-
-
 json.memberships do 
   json.array! book_club.memberships.each do |membership|
     json.id membership.id

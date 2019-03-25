@@ -8,7 +8,7 @@ class Api::MembershipsController < ApplicationController
 
   def create
     @membership = Membership.new(
-                                user_id: params[:user.id],
+                                user_id: params[:user_id],
                                 book_club_id: params[:book_club_id]
                                 )
 

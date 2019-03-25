@@ -22,15 +22,15 @@ json.followees do
   end  
 end
 
-json.reviews do 
-  json.array! user.reviews.each do |review|
-    json.id review.id
-    json.user_id review.user_id
-    json.book_id review.book_id
-    json.rating review.rating
-    json.content review.content
-  end
-end
+# json.reviews do 
+#   json.array! user.reviews.each do |review|
+#     json.id review.id
+#     json.user_id review.user_id
+#     json.book_id review.book_id
+#     json.rating review.rating
+#     json.content review.content
+#   end
+# end
 
 json.inventories do 
   json.array! user.inventories.each do |inventory|
@@ -49,14 +49,14 @@ json.memberships do
   end 
 end
 
-json.messages do 
-  json.array! user.messages.each do |message| 
-    json.id message.id
-    json.user_id message.user_id
-    json.book_club_id message.book_club_id
-    json.content message.content
-  end
-end
+# json.messages do 
+#   json.array! user.messages.each do |message| 
+#     json.id message.id
+#     json.user_id message.user_id
+#     json.book_club_id message.book_club_id
+#     json.content message.content
+#   end
+# end
 
 json.read_books do
   json.array! user.read_books.each do |read_book|

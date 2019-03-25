@@ -50,5 +50,34 @@ class Api::BooksController < ApplicationController
     render json: {message: "Successfully removed book."}
   end
 
+  def search
+    response = HTTP.get("https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&printType=books&maxResults=20&key=AIzaSyAcFPX4bqImDgoJ7TcDqkqtOmYBQQJtwqY")
+    render json: response.parse
+  end
+
+  def pull_book_info
+    response = HTTP.get("https://www.googleapis.com/books/v1/volumes/#{params[:api_ref]}")
+
+    volume_info = response.parse["volumeInfo"]
+
+
+    author = Author.find_or_create_by(name: volume_info["authors"][0] )
+    genre = volume_info["categories"] && volume_info["categories"].join("; ")
+    image_url = volume_info["imageLinks"] && volume_info["imageLinks"]["thumbnail"]
+
+
+    @book = Book.create_with(
+                              author_id: author.id,
+                              summary: volume_info["description"],
+                              page_count: volume_info["pageCount"],
+                              genre: genre,
+                              image_url: image_url
+                              ).find_or_create_by(
+                                                  title: volume_info["title"]
+                                                  )
+    
+
+    render "show.json.jbuilder"
+  end
 
 end

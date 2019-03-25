@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     patch '/authors/:id' => 'authors#update' 
     delete '/authors/:id' => 'authors#destroy'
 
+
     get '/books' => 'books#index'
     post '/books' => 'books#create'
     get '/books/:id' => 'books#show'
@@ -53,6 +54,7 @@ Rails.application.routes.draw do
     post '/messages' => 'messages#create'
 
     get '/google/books' => 'books#search'
-    get '/google/books' => 'books#result'
+    get '/google/book_find/:api_ref' => 'books#pull_book_info'
+
   end
 end

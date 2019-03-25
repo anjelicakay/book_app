@@ -13,7 +13,8 @@ class Api::BookClubsController < ApplicationController
                     )
 
     if @book_club.save
-      render json: {message: "Book club created successfully"}, status: :created 
+      Membership.create(user_id: params[:user_id], book_club_id: @book_club.id)
+      render 'show.json.jbuilder'
     else
       render json: {errors: @book_club.errors.full_messages}, status: :bad_request
     end

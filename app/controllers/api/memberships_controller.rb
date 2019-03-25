@@ -8,7 +8,7 @@ class Api::MembershipsController < ApplicationController
 
   def create
     @membership = Membership.new(
-                                user_id: current_user.id,
+                                user_id: params[:user.id],
                                 book_club_id: params[:book_club_id]
                                 )
 
@@ -19,10 +19,10 @@ class Api::MembershipsController < ApplicationController
     end    
   end
 
-  def show
-    @membership = Membership.find(params[:id])
-    render 'show.json.jbuilder'
-  end
+  # def show
+  #   @membership = Membership.find(params[:id])
+  #   render 'show.json.jbuilder'
+  # end
 
   def destroy
     membership = Membership.find(params[:id])

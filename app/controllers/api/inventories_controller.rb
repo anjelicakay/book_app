@@ -7,15 +7,15 @@ class Api::InventoriesController < ApplicationController
   end
 
   def create
-    inventory = Inventory.new(
+    @inventory = Inventory.new(
                               user_id: current_user.id,
                               book_id: params[:book_id],
                               status: params[:status]
                               )
-    if inventory.save
+    if @inventory.save
       render json: {message: "Book added successfully"}, status: :created 
     else
-      render json: {errors: inventory.errors.full_messages}, status: :bad_request
+      render json: {errors: @inventory.errors.full_messages}, status: :bad_request
     end
   end
 

@@ -6,15 +6,15 @@ class Api::AuthorsController < ApplicationController
   end
 
   def create
-    author = Author.new(
+    @author = Author.new(
                         first_name: params[:first_name],
                         last_name: params[:last_name],
                         biography: params[:biography]
                         )
-    if author.save
+    if @author.save
       render json: {message: "Author created successfully"}, status: :created 
     else
-      render json: {errors: author.errors.full_messages}, status: :bad_request
+      render json: {errors: @author.errors.full_messages}, status: :bad_request
     end
   end
 

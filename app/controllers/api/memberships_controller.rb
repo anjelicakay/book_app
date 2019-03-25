@@ -7,15 +7,15 @@ class Api::MembershipsController < ApplicationController
   end
 
   def create
-    membership = Membership.new(
-                                user_id: params[:user_id],
+    @membership = Membership.new(
+                                user_id: current_user.id,
                                 book_club_id: params[:book_club_id]
                                 )
 
-    if membership.save
+    if @membership.save
       render json: {message: "Member created successfully"}, status: :created 
     else
-      render json: {errors: membership.errors.full_messages}, status: :bad_request
+      render json: {errors: @membership.errors.full_messages}, status: :bad_request
     end    
   end
 

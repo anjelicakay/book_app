@@ -7,16 +7,16 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.new(
+    @review = Review.new(
                         user_id: current_user.id,
                         book_id: params[:book_id],
                         rating: params[:rating],
                         content: params[:content]
                         )
-    if review.save
+    if @review.save
       render json: {message: "Review added successfully"}, status: :created 
     else
-      render json: {errors: review.errors.full_messages}, status: :bad_request
+      render json: {errors: @review.errors.full_messages}, status: :bad_request
     end
   end
 

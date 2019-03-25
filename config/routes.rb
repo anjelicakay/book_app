@@ -37,6 +37,11 @@ Rails.application.routes.draw do
     get '/reviews/:id' => 'reviews#show'
     patch '/reviews/:id' => 'reviews#update'
     delete '/reviews/:id' => 'reviews#destroy'
+    
+    get '/memberships' => 'memberships#index'   
+    post '/memberships' => 'memberships#create'   
+    get '/memberships/:id' => 'memberships#show'   
+    delete '/memberships/:id' => 'memberships#destroy'
 
     get '/book_clubs' => 'book_clubs#index'
     post '/book_clubs' => 'book_clubs#create'
@@ -44,14 +49,10 @@ Rails.application.routes.draw do
     patch '/book_clubs/:id' => 'book_clubs#update'
     delete '/book_clubs/:id' => 'book_clubs#destroy' 
     
-    get '/memberships' => 'memberships#index'   
-    post '/memberships' => 'memberships#create'   
-    get '/memberships/:id' => 'memberships#show'   
-    delete '/memberships/:id' => 'memberships#destroy'
-
     get '/messages' => 'messages#index'
     post '/messages' => 'messages#create'
 
     get '/google/books' => 'books#search'
+    get '/google/books' => 'books#result'
   end
 end

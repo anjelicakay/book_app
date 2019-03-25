@@ -7,7 +7,7 @@ class Api::BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(
+    @book = Book.new(
                     title: params[:title],
                     author_id: params[:author_id],
                     summary: params[:summary],
@@ -15,10 +15,10 @@ class Api::BooksController < ApplicationController
                     image_url: params[:image_url],
                     page_count: params[:page_count]
                     )
-    if book.save
+    if @book.save
       render json: {message: "Book created successfully"}, status: :created 
     else
-      render json: {errors: book.errors.full_messages}, status: :bad_request
+      render json: {errors: @book.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -50,8 +50,5 @@ class Api::BooksController < ApplicationController
     render json: {message: "Successfully removed book."}
   end
 
-  def search
 
-    render json: response.parse
-  end
 end

@@ -13,7 +13,7 @@ class Api::BookClubsController < ApplicationController
                     )
 
     if @book_club.save
-      Membership.create(user_id: params[:user_id], book_club_id: @book_club.id)
+      Membership.create(user_id: current_user.id, book_club_id: @book_club.id)
       render 'show.json.jbuilder'
     else
       render json: {errors: @book_club.errors.full_messages}, status: :bad_request

@@ -1,10 +1,10 @@
 class Api::FollowingsController < ApplicationController
   before_action :authenticate_user
 
-  # def index
-  #   @followings = Following.all 
-  #   render 'index.json.jbuilder'
-  # end
+  def index
+    @followings = Following.all 
+    render 'index.json.jbuilder'
+  end
 
   def create
     @following = Following.new(
@@ -19,9 +19,9 @@ class Api::FollowingsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   following = Following.find(params[:id])
-  #   following.destroy
-  #   render json: {message: "Successfully unfollowed."}
-  # end
+  def destroy
+    following = Following.find(params[:id])
+    following.destroy
+    render json: {message: "Successfully unfollowed."}
+  end
 end

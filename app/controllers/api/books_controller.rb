@@ -51,7 +51,7 @@ class Api::BooksController < ApplicationController
   end
 
   def search
-    response = HTTP.get("https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&printType=books&maxResults=20&key=#{ENV['API_KEY']}")
+    response = HTTP.get("https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&printType=books&maxResults=10&key=#{ENV['API_KEY']}")
     render json: response.parse
   end
 

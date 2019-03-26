@@ -4,14 +4,14 @@ json.last_name user.last_name
 json.email user.email
 json.image user.image
 
-json.followers do
-  json.array! user.followers.each do |follower|
-    json.id follower.id
-    json.first_name follower.first_name
-    json.last_name follower.last_name
-    json.image follower.image
-  end  
-end
+# json.followers do
+#   json.array! user.followers.each do |follower|
+#     json.id follower.id
+#     json.first_name follower.first_name
+#     json.last_name follower.last_name
+#     json.image follower.image
+#   end  
+# end
 
 json.followees do
   json.array! user.followees.each do |followee|
@@ -19,6 +19,7 @@ json.followees do
     json.first_name followee.first_name
     json.last_name followee.last_name
     json.image followee.image
+    json.following_id user.followee_followings.find_by(followee_id: followee.id).id
   end  
 end
 
@@ -46,6 +47,14 @@ json.memberships do
     json.id membership.id
     json.user_id membership.user_id
     json.book_club_id membership.book_club_id
+  end 
+end
+
+json.book_clubs do 
+  json.array! user.book_clubs.each do |book_club|
+    json.id book_club.id
+    json.name book_club.name 
+    json.book_id book_club.book_id
   end 
 end
 

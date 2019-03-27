@@ -35,13 +35,20 @@ end
 #   end
 # end
 
-json.inventories do 
-  json.array! book.inventories.each do |inventory|
-    json.id inventory.id
-    json.user_id inventory.user_id
-    json.book_id inventory.book_id
-    json.status inventory.status
-  end 
+# json.inventories do 
+#   json.array! book.inventories.each do |inventory|
+#     json.id inventory.id
+#     json.user_id inventory.user_id
+#     json.status inventory.status
+#   end 
+# end
+
+json.inventory do 
+  your_inventory = book.inventories.find_by(user_id: current_user.id)
+  json.id your_inventory.id
+  json.user_id your_inventory.user_id
+  json.book_id your_inventory.book_id
+  json.status your_inventory.status
 end
 
 json.book_clubs do

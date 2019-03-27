@@ -29,7 +29,7 @@ class Api::InventoriesController < ApplicationController
 
     @inventory.status = params[:status] || @inventory.status
 
-    if current_user && @inventory.save
+    if @inventory.save
       render 'show.json.jbuilder'
     else
       render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity     

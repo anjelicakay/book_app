@@ -29,5 +29,4 @@ class User < ApplicationRecord
   def to_read
     inventories.want_to_read.map {|inventory| inventory.book }
   end
-
 end

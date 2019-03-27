@@ -5,7 +5,5 @@ json.rating review.rating
 json.content review.content
 
 json.user do
-  if review.user
-    json.partial! review.user, partial: 'api/users/user', as: :user
-  end
+  json.partial! review.user, partial: 'api/users/user', as: :user
 end
